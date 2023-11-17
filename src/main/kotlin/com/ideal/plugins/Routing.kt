@@ -59,6 +59,7 @@ private fun getCourse(id: Int): Course? {
                 title = it[CourseTable.title],
                 description = it[CourseTable.description],
                 credit = it[CourseTable.credit],
+                requirementsDescription = it[CourseTable.requirementsDescription]
             )
         }
     }
@@ -71,6 +72,7 @@ object CourseTable: IntIdTable() {
     val title = varchar("title", 255)
     val description = varchar("description", 4095)
     val credit = double("credit")
+    val requirementsDescription = varchar("requirementsDescription", 2047)
 }
 
 @Serializable
@@ -80,5 +82,6 @@ data class Course(
     val catalogNumber: String,
     val title: String,
     val description: String,
-    val credit: Double
+    val credit: Double,
+    val requirementsDescription: String = ""
 )
